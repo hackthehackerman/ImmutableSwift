@@ -8,7 +8,7 @@ protocol ImmutableSwiftGeneratorPlugin {
 }
 
 struct Plugins {
-    static let PLUGIN_MAP: [String: ImmutableSwiftGeneratorPlugin] = [
+    static let pluginMap: [String: ImmutableSwiftGeneratorPlugin] = [
         ISCoding.Name: ISCoding(),
         ISHashable.Name: ISHashable(),
         ISCodable.Name: ISCodable(),

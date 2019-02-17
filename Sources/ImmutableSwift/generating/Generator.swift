@@ -86,8 +86,8 @@ class Generator {
     static func GenerateImportsWithPluginList(_ pluginList: PluginList) -> String {
         var imports: Set<String> = []
         for pluginName in pluginList.plugins {
-            if Plugins.PLUGIN_MAP[pluginName] != nil {
-                for importFromPlugin in Plugins.PLUGIN_MAP[pluginName]!.imports() {
+            if Plugins.pluginMap[pluginName] != nil {
+                for importFromPlugin in Plugins.pluginMap[pluginName]!.imports() {
                     imports.insert("import "+importFromPlugin)
                 }
             }
@@ -109,7 +109,7 @@ class Generator {
             return false
         }
         for pluginName in pluginList!.plugins {
-            if Plugins.PLUGIN_MAP[pluginName] != nil, Plugins.PLUGIN_MAP[pluginName]!.shouldUseClass() {
+            if Plugins.pluginMap[pluginName] != nil, Plugins.pluginMap[pluginName]!.shouldUseClass() {
                 return true
             }
         }
@@ -119,8 +119,8 @@ class Generator {
     static func PrintSuperClasses(_ pluginList: PluginList) -> String {
         var superClasses: [String] = []
         for pluginName in pluginList.plugins {
-            if Plugins.PLUGIN_MAP[pluginName] != nil {
-                superClasses = superClasses + Plugins.PLUGIN_MAP[pluginName]!.superClasses()
+            if Plugins.pluginMap[pluginName] != nil {
+                superClasses = superClasses + Plugins.pluginMap[pluginName]!.superClasses()
             }
         }
         if !superClasses.isEmpty {
@@ -162,8 +162,8 @@ class Generator {
     static func GeneratePostVariableDefinitionObjectBodyWithPluginList(_ pluginList: PluginList, _ datamodel: DataModel) -> String {
         var additionalBody: [String] = []
         for pluginName in pluginList.plugins {
-            if Plugins.PLUGIN_MAP[pluginName] != nil {
-                let bodyFromPlugin = Plugins.PLUGIN_MAP[pluginName]!.postVariableDefinition(datamodel)
+            if Plugins.pluginMap[pluginName] != nil {
+                let bodyFromPlugin = Plugins.pluginMap[pluginName]!.postVariableDefinition(datamodel)
                 if !bodyFromPlugin.isEmpty {
                     additionalBody.append(bodyFromPlugin)
                 }
@@ -175,8 +175,8 @@ class Generator {
     static func GeneratePostConstructorObjectBodyWithPluginList(_ pluginList: PluginList, _ datamodel: DataModel) -> String {
         var additionalMethods: [String] = []
         for pluginName in pluginList.plugins {
-            if Plugins.PLUGIN_MAP[pluginName] != nil {
-                let methodFromPlugin = Plugins.PLUGIN_MAP[pluginName]!.postConstructor(datamodel)
+            if Plugins.pluginMap[pluginName] != nil {
+                let methodFromPlugin = Plugins.pluginMap[pluginName]!.postConstructor(datamodel)
                 if !methodFromPlugin.isEmpty {
                     additionalMethods.append(methodFromPlugin)
                 }
