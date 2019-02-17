@@ -1,0 +1,8 @@
+import Foundation
+
+ExampleDataModel (ISHashable, ISCodable, ISCopying){
+    # comment line 2
+    String name
+    # comment here
+    Int name2
+}
