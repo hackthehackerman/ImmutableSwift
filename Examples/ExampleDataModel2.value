@@ -1,5 +1,3 @@
-import Foundation
-
 ExampleDataModel (ISCoding, ISCopying){
     # comment line 2
     String name
