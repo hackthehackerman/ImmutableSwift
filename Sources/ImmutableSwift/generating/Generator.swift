@@ -1,7 +1,12 @@
 class Generator {
     static func Generate(_ datamodel: DataModel) -> String {
         var output = ""
-        let pluginList = datamodel.plugins
+        let pluginList : PluginList?
+        if datamodel.plugins != nil{
+            pluginList = datamodel.plugins
+        } else{
+            pluginList = PluginList(Plugins.defaultPlugins)
+        }
 
         // optional imports
         if datamodel.imports != nil {

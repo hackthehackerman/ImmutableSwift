@@ -14,4 +14,10 @@ struct Plugins {
         ISCodable.Name: ISCodable(),
         ISCopying.Name: ISCopying(),
     ]
+
+    static let defaultPlugins : [String] = [
+        ISHashable.Name,
+        ISCodable.Name,
+        ISCopying.Name,
+    ]
 }
