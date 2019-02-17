@@ -8,6 +8,13 @@ class Generator {
             output = output + Generator.ImportsToString(datamodel.imports!) + "\n"
         }
 
+        if pluginList != nil {
+            let importsFromPlugins = Generator.GenerateImportsWithPluginList(pluginList!)
+            if importsFromPlugins.count > 0{
+                output = output  + importsFromPlugins + "\n"
+            }
+        }
+
         // optional accesscontrol
         if datamodel.accessControlLevel != nil {
             output = output + Generator.AccessControlLevelToString(datamodel.accessControlLevel!) + " "
@@ -74,6 +81,18 @@ class Generator {
             output = output + "\n"
         }
         return output
+    }
+
+    static func GenerateImportsWithPluginList(_ pluginList: PluginList) -> String {
+        var imports: Set<String> = []
+        for pluginName in pluginList.plugins {
+            if Plugins.PLUGIN_MAP[pluginName] != nil {
+                for importFromPlugin in Plugins.PLUGIN_MAP[pluginName]!.imports() {
+                    imports.insert("import "+importFromPlugin)
+                }
+            }
+        }
+        return imports.joined(separator: "\n") + "\n"
     }
 
     static func AccessControlLevelToString(_ accessControl: AccessControl) -> String {
