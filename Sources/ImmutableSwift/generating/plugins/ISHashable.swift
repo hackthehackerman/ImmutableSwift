@@ -5,6 +5,10 @@ class ISHashable: ImmutableSwiftGeneratorPlugin {
         return false
     }
 
+    func imports() -> [String] {
+        return ["Foundation"]
+    }
+
     func superClasses() -> [String] {
         return ["Hashable"]
     }

@@ -1,6 +1,7 @@
 protocol ImmutableSwiftGeneratorPlugin {
     static var Name: String { get }
     func shouldUseClass() -> Bool
+    func imports() -> [String]
     func superClasses() -> [String]
     func postVariableDefinition(_ datamodel: DataModel) -> String
     func postConstructor(_ datamodel: DataModel) -> String

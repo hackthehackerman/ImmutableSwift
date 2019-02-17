@@ -38,6 +38,10 @@ class ISCoding: ImmutableSwiftGeneratorPlugin {
         return true
     }
 
+    func imports() -> [String] {
+        return ["Foundation"]
+    }
+
     func superClasses() -> [String] {
         return ["NSObject", "NSCoding"]
     }

@@ -5,6 +5,10 @@ class ISCopying: ImmutableSwiftGeneratorPlugin {
         return true
     }
 
+    func imports() -> [String] {
+        return ["Foundation"]
+    }
+            
     func superClasses() -> [String] {
         return ["NSCopying"]
     }
