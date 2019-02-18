@@ -1,6 +1,6 @@
 # ImmutableSwift
 
-ImmutableSwift is a tool that generates swift model that supports immutability, coding(Coding and NSCoding), value comparions, hashing and copying. Directly inspired by [facebook/remodel](https://github.com/facebook/remodel).
+ImmutableSwift is a tool that generates swift model with supports for immutability, coding(Coding and NSCoding), value comparions, hashing and copying. Directly inspired by [facebook/remodel](https://github.com/facebook/remodel).
 
 TLDR: generate this
 ```
