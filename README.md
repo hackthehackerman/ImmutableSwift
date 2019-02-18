@@ -130,3 +130,6 @@ public Friend (ISCodable, ISHashable, ISCopying){
 
 ## Contributing
 Pull requests are very welcomed! 
+
+## License
+MIT License
